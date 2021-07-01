@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Create() {
+const Create: React.FC = () => {
   const classes = useStyles();
   const history = useHistory();
   const [title, setTitle] = useState("");
@@ -31,14 +31,15 @@ export default function Create() {
   const [detailsError, setDetailsError] = useState(false);
   const [category, setCategory] = useState("reminders");
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e:any)=> {
     e.preventDefault();
 
     if (title && details) {
       let getAllNotes = JSON.parse(localStorage.getItem("notes") as any);
-      const newNote = {
-        id: uuid(),
-        title: title,
+
+      const newNote: Note = {
+        id: uuid(), 
+        title: title, 
         details: details,
         category: category,
       };
@@ -123,4 +124,5 @@ export default function Create() {
       <br />
     </Container>
   );
-}
+};
+export default Create;

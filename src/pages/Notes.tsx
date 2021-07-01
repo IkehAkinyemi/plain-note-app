@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Container from "@material-ui/core/Container";
 import NoteCard from "../components/NoteCard";
 import Masonry from "react-masonry-css";
+
 export default function Notes() {
   const initialState = {
     notes: localStorage.getItem("notes")
@@ -16,7 +17,6 @@ export default function Notes() {
   }, []);
   const handleDelete = async (id: any) => {
     const newNotes = notes.filter((note: any) => note.id !== id);
-    console.log(newNotes);
     setNotes(newNotes);
     localStorage.setItem("notes", JSON.stringify(newNotes));
   };
@@ -33,7 +33,7 @@ export default function Notes() {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {notes.map((note: any) => (
+        {notes.map((note: Note) => (
           <div key={note.id}>
             <NoteCard note={note} handleDelete={handleDelete} />
           </div>

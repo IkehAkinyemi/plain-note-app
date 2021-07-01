@@ -23,7 +23,12 @@ const useStyles = makeStyles({
   },
 });
 
-const NoteCard = ({ note, handleDelete }: { note: any; handleDelete: any }) => {
+type INoteCard = {
+  note: any;
+  handleDelete: (id: any) => {};
+};
+
+const NoteCard = ({ note, handleDelete }: INoteCard) => {
   const classes = useStyles(note);
 
   return (

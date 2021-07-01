@@ -51,6 +51,7 @@ const useStyles = makeStyles((theme) => {
     },
   };
 });
+
 const Layout = ({
   children,
   handleChange,
@@ -74,13 +75,14 @@ const Layout = ({
       path: "/create",
     },
   ];
+
   return (
     <div className={classes.root}>
       {/* app bar */}
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar>
           <Typography className={classes.appname}>
-            Welcome back to <b>NOTED</b>{" "}
+            Welcome back to <b>NOTES</b>{" "}
             {/* {format(new Date(), 'do MMMM Y')} */}
           </Typography>
           <Switch checked={darkMode} onChange={handleChange} />
@@ -96,7 +98,7 @@ const Layout = ({
       >
         <div>
           <Typography variant="h5" className={classes.title}>
-            NOTED
+            NOTES APP
           </Typography>
         </div>
 
